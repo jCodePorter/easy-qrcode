@@ -25,14 +25,11 @@ public class QrMatrixGenerator {
 
     public static BitMatrixWrapper calculateMatrix(QrCodeConfig codeConfig) throws WriterException {
         ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L;
-        int quietZone = 1;
-        if (codeConfig.getPadding() != null) {
-            quietZone = codeConfig.getPadding();
-            if (quietZone > MAX_QUIET_ZONE_SIZE) {
-                quietZone = MAX_QUIET_ZONE_SIZE;
-            } else if (quietZone < 0) {
-                quietZone = 0;
-            }
+        int quietZone = quietZone = codeConfig.getPadding();
+        if (quietZone > MAX_QUIET_ZONE_SIZE) {
+            quietZone = MAX_QUIET_ZONE_SIZE;
+        } else if (quietZone < 0) {
+            quietZone = 0;
         }
 
         Hashtable<EncodeHintType, Object> hints = new Hashtable<>();
@@ -40,7 +37,8 @@ public class QrMatrixGenerator {
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.Q);
         hints.put(EncodeHintType.MARGIN, quietZone);
         QRCode code = Encoder.encode(codeConfig.getMsg(), errorCorrectionLevel, hints);
-        return renderResult(code, codeConfig.getWidth(), codeConfig.getHeight(), quietZone);
+        return renderResult(code, codeConfig.getWidth(), codeConfig.
+                        getHeight(), quietZone);
     }
 
     private static BitMatrixWrapper renderResult(QRCode code, int width, int height, int quietZone) {

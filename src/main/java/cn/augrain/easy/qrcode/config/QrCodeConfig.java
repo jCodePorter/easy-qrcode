@@ -3,6 +3,8 @@ package cn.augrain.easy.qrcode.config;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.awt.*;
+
 /**
  * 二维码配置
  *
@@ -20,15 +22,30 @@ public class QrCodeConfig {
     /**
      * 二维码的宽
      */
-    private Integer width;
+    private int width = 200;
 
     /**
      * 二维码的高
      */
-    private Integer height;
+    private int height = 200;
 
     /**
      * 最大留白区域
      */
-    private Integer padding;
+    private int padding = 1;
+
+    /**
+     * 外部定位点颜色
+     */
+    private Color outerLocationColor = Color.BLACK;
+
+    /**
+     * 内部定位点颜色
+     */
+    private Color innerLocationColor = Color.BLACK;
+
+    /**
+     * 矩阵信息颜色
+     */
+    private Color color = Color.BLACK;
 }
