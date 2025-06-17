@@ -2,13 +2,10 @@ package cn.augrain.easy.qrcode.core;
 
 import cn.augrain.easy.qrcode.config.QrCodeConfig;
 import cn.augrain.easy.qrcode.wrapper.BitMatrixWrapper;
-import cn.augrain.easy.tool.lang.HexUtils;
 import com.google.zxing.qrcode.encoder.ByteMatrix;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 二维码渲染门面
@@ -68,7 +65,6 @@ public class QrRenderFacade {
         if (x >= size - finderPatternSize && y < finderPatternSize) return true;
         return false;
     }
-
 
     // 更准确的定位点内部检测方法
     private static boolean isInInnerFinderPattern(int x, int y, int size, int finderPatternSize) {
