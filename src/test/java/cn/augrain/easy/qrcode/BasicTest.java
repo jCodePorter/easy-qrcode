@@ -29,7 +29,7 @@ public class BasicTest {
     @Test
     public void testGradient() {
         EasyQrcode qrcode = new EasyQrcode("空间引力是一家专注于软件的公司")
-                .setGradient(new Gradient("#74A5FF", "#CEFF7E", GradientDirection.LEFT_BOTTOM_TOP_RIGHT))
+                .setGradient(new Gradient("#74A5FF", "#CEFF7E", GradientDirection.TOP_LEFT_RIGHT_BOTTOM))
                 .setWhole(true);
         qrcode.asImg("out_qrcode_whole_gradient.png");
     }

@@ -57,7 +57,8 @@ public class Gradient {
             double distance = Math.sqrt(x * x + (height - 1 - y) * (height - 1 - y));
             return this.gradientColor.get((int) (distance));
         } else {
-            return null;
+            double distance = Math.sqrt(x * x + y * y);
+            return this.gradientColor.get((int) (distance));
         }
     }
 }
