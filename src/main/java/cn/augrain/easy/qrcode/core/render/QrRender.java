@@ -1,6 +1,7 @@
 package cn.augrain.easy.qrcode.core.render;
 
 import cn.augrain.easy.qrcode.config.QrCodeConfig;
+import cn.augrain.easy.qrcode.model.PointType;
 import cn.augrain.easy.qrcode.model.RenderDot;
 
 import java.awt.*;
@@ -20,9 +21,27 @@ public class QrRender {
 
         if (qrCodeConfig.isWhole()) {
             renderWhole(bufferImage, dotList, qrCodeConfig);
+        } else {
+            renderCustom(bufferImage, dotList, qrCodeConfig);
         }
 
         return bufferImage;
+    }
+
+    private static void renderCustom(BufferedImage bufferImage, List<RenderDot> dotList, QrCodeConfig qrCodeConfig) {
+        Graphics2D g = bufferImage.createGraphics();
+        for (RenderDot renderDot : dotList) {
+            if (renderDot.getPointType() == PointType.EYE) {
+                if (renderDot.isOuter()) {
+                    g.setColor(qrCodeConfig.getEyeOuterColor());
+                } else {
+                    g.setColor(qrCodeConfig.getEyeInnerColor());
+                }
+            } else {
+                g.setColor(qrCodeConfig.getBgColor());
+            }
+            g.fillRect(renderDot.getX(), renderDot.getY(), renderDot.getSize(), renderDot.getSize());
+        }
     }
 
     private static void renderWhole(BufferedImage bufferImage, List<RenderDot> dotList, QrCodeConfig qrCodeConfig) {

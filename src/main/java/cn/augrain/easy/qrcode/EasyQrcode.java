@@ -37,12 +37,12 @@ public class EasyQrcode {
         return this;
     }
 
-    public EasyQrcode setOuterLocationColor(Color color) {
-        this.codeConfig.setEyeOutColor(color);
+    public EasyQrcode setEyeOuterColor(Color color) {
+        this.codeConfig.setEyeOuterColor(color);
         return this;
     }
 
-    public EasyQrcode setInnerLocationColor(Color color) {
+    public EasyQrcode setEyeInnerColor(Color color) {
         this.codeConfig.setEyeInnerColor(color);
         return this;
     }

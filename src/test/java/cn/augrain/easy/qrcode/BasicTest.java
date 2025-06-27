@@ -11,10 +11,9 @@ public class BasicTest {
     @Test
     public void t1() {
         EasyQrcode qrcode = new EasyQrcode("叮有鱼成立了叮有鱼成立了叮有鱼成立了")
-                .setInnerLocationColor(Color.blue)
-                .setOuterLocationColor(Color.RED)
+                .setEyeInnerColor(Color.blue)
+                .setEyeOuterColor(Color.RED)
                 .setBgColor(Color.pink);
-
         qrcode.asImg("out_qrcode.png");
     }
 

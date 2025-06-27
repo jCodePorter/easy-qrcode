@@ -25,9 +25,9 @@ public class QrRenderDotResolver {
             return parseWhole(wrapper);
         }
 
-        int width = wrapper.getWidth();
-        int height = wrapper.getHeight();
         ByteMatrix byteMatrix = wrapper.getByteMatrix();
+        int width = byteMatrix.getWidth();
+        int height = byteMatrix.getHeight();
 
         List<RenderDot> dots = new ArrayList<>();
         for (int y = 0; y < height; y++) {

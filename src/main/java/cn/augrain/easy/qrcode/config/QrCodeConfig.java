@@ -47,7 +47,7 @@ public class QrCodeConfig {
     /**
      * 码眼外圈颜色
      */
-    private Color eyeOutColor = Color.BLACK;
+    private Color eyeOuterColor = Color.BLACK;
 
     /**
      * 码眼内圈颜色
