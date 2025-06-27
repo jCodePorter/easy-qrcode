@@ -1,7 +1,6 @@
 package cn.augrain.easy.qrcode.core.render;
 
 import cn.augrain.easy.qrcode.config.QrCodeConfig;
-import cn.augrain.easy.qrcode.core.QrRenderDotResolver;
 import cn.augrain.easy.qrcode.model.RenderDot;
 
 import java.awt.*;
@@ -29,9 +28,24 @@ public class QrRender {
     private static void renderWhole(BufferedImage bufferImage, List<RenderDot> dotList, QrCodeConfig qrCodeConfig) {
         Graphics2D g = bufferImage.createGraphics();
         g.setColor(qrCodeConfig.getBgColor());
-        for (RenderDot dot : dotList) {
-            g.fillRect(dot.getX(), dot.getY(), dot.getSize(), dot.getSize());
+        if (qrCodeConfig.getGradient() != null) {
+            for (RenderDot dot : dotList) {
+                for (int i = 0; i <= dot.getSize(); i++) {
+                    int ry = dot.getY() + i;
+                    for (int j = 0; j <= dot.getSize(); j++) {
+                        int rx = dot.getX() + j;
+                        Color color = qrCodeConfig.getGradient().getColor(rx, ry, bufferImage.getWidth(), bufferImage.getHeight());
+                        g.setColor(color);
+                        g.fillRect(rx, ry, 1, 1);
+                    }
+                }
+            }
+        } else {
+            for (RenderDot dot : dotList) {
+                g.fillRect(dot.getX(), dot.getY(), dot.getSize(), dot.getSize());
+            }
         }
+
     }
 
     private static BufferedImage createBufferImage(QrCodeConfig qrCodeConfig) {

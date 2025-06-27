@@ -40,6 +40,11 @@ public class QrCodeConfig {
     private boolean whole;
 
     /**
+     * 渐变色配置
+     */
+    private Gradient gradient;
+
+    /**
      * 码眼外圈颜色
      */
     private Color eyeOutColor = Color.BLACK;

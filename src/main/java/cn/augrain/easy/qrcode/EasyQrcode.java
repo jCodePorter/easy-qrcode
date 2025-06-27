@@ -1,5 +1,6 @@
 package cn.augrain.easy.qrcode;
 
+import cn.augrain.easy.qrcode.config.Gradient;
 import cn.augrain.easy.qrcode.config.QrCodeConfig;
 import cn.augrain.easy.qrcode.core.QrRenderFacade;
 
@@ -53,6 +54,11 @@ public class EasyQrcode {
 
     public EasyQrcode setWhole(boolean whole) {
         this.codeConfig.setWhole(whole);
+        return this;
+    }
+
+    public EasyQrcode setGradient(Gradient gradient) {
+        this.codeConfig.setGradient(gradient);
         return this;
     }
 
