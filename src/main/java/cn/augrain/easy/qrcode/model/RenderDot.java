@@ -28,7 +28,30 @@ public class RenderDot {
     private int size;
 
     /**
-     * 资源类型 0: 探测图形  1: 背景点  2: 信息点|码点
+     * 类型
      */
-    protected int type;
+    private PointType pointType;
+
+    /**
+     * 是否外部，仅当 pointType = PointType.EYE 生效
+     */
+    private boolean isOuter;
+
+    public RenderDot() {
+    }
+
+    public RenderDot(int x, int y, int size, PointType pointType) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.pointType = pointType;
+    }
+
+    public RenderDot(int x, int y, int size, PointType pointType, boolean isOuter) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.pointType = pointType;
+        this.isOuter = isOuter;
+    }
 }

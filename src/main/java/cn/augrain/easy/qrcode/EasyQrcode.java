@@ -37,17 +37,22 @@ public class EasyQrcode {
     }
 
     public EasyQrcode setOuterLocationColor(Color color) {
-        this.codeConfig.setOuterLocationColor(color);
+        this.codeConfig.setEyeOutColor(color);
         return this;
     }
 
     public EasyQrcode setInnerLocationColor(Color color) {
-        this.codeConfig.setInnerLocationColor(color);
+        this.codeConfig.setEyeInnerColor(color);
         return this;
     }
 
-    public EasyQrcode setColor(Color color) {
-        this.codeConfig.setColor(color);
+    public EasyQrcode setBgColor(Color color) {
+        this.codeConfig.setBgColor(color);
+        return this;
+    }
+
+    public EasyQrcode setWhole(boolean whole) {
+        this.codeConfig.setWhole(whole);
         return this;
     }
 

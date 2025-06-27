@@ -35,17 +35,22 @@ public class QrCodeConfig {
     private int padding = 1;
 
     /**
-     * 外部定位点颜色
+     * 是否整个二维码渲染，设置为true，忽略码眼颜色，使用统计背景图或者背景色
      */
-    private Color outerLocationColor = Color.BLACK;
+    private boolean whole;
 
     /**
-     * 内部定位点颜色
+     * 码眼外圈颜色
      */
-    private Color innerLocationColor = Color.BLACK;
+    private Color eyeOutColor = Color.BLACK;
 
     /**
-     * 矩阵信息颜色
+     * 码眼内圈颜色
      */
-    private Color color = Color.BLACK;
+    private Color eyeInnerColor = Color.BLACK;
+
+    /**
+     * 背景色
+     */
+    private Color bgColor = Color.BLACK;
 }
